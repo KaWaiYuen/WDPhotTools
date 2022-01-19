@@ -93,7 +93,7 @@ def test_plot_atmosphere_models_none_folder_savefig():
     plotter.plot_atmosphere_model(display=False,
                                   savefig=True,
                                   folder=None,
-                                  filename='test_plot_atmosphere_mode金',
+                                  filename='test_plot_atmosphere_model',
                                   ext='png')
 
 # YKW 19JAN2022 3
@@ -114,3 +114,10 @@ def test_plot_cooling_model_folder_none():
                                filename='cooling_model_ykw_2',
                                ext='png',
                                fig=fig)
+
+# YKW 19JAN2022 5
+def test_plot_atmosphere_models_lenx_not_2():
+    plotter.plot_atmosphere_model(x = 'G3_BP',
+                                  display=False,
+                                  savefig=False,
+                                  )
