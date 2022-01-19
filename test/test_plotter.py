@@ -93,5 +93,15 @@ def test_plot_atmosphere_models_none_folder_savefig():
     plotter.plot_atmosphere_model(display=False,
                                   savefig=True,
                                   folder=None,
-                                  filename='test_plot_atmosphere_model_YKW_1',
+                                  filename='test_plot_atmosphere_mode金',
                                   ext='png')
+
+# YKW 19JAN2022 3
+def test_plot_cooling_model_fig_none():
+    fig = plotter.plot_cooling_model(display=False, title=' ')
+    plotter.plot_cooling_model(display=False,
+                               savefig=True,
+                               folder='test_output_ykw_1',
+                               filename='cooling_model_ykw_1',
+                               ext='png',
+                               fig=fig)
