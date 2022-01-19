@@ -77,3 +77,14 @@ def test_plot_cooling_model_invert_axis():
                                folder='test_output',
                                filename='cooling_model_r_logg',
                                ext=['png', 'pdf'])
+
+# YKW 19JAN2022
+def test_plot_atmosphere_model_dummy_none():
+    fig = plotter.plot_atmosphere_model(display=False, title=' ')
+    plotter.plot_atmosphere_model(x='G2-G3_BP-G3_RP',
+                                  atmosphere='He',
+                                  invert_yaxis=True,
+                                  contour=False,
+                                  display=False,
+                                  savefig=True,
+                                  fig=fig)
