@@ -578,4 +578,32 @@ def test_fitting_logg_and_Mbol_red_emcee():
                       rtol=1e-03,
                       atol=1e-03).all()
  
- #
+# Testing the interp_reddening() by YKW on 12Jan2022
+def test_interp_reddening():
+    ftr.interp_reddening(filters=['G3', 'G3_BP', 'G3_RP', 'FUV', 'NUV'],
+                         interpolated=True)
+
+# Testing the _chi2_minimization_red_interpolated() by YKW on 13Jan2022
+def test_chi2_minimization_red_interpolated():
+    mags = np.array([10.882, 10.853, 10.946, 11.301, 11.183])
+    mags = mags + extinction_interpolated
+    ftr.fit(filters=['G3', 'G3_BP', 'G3_RP', 'FUV', 'NUV'],
+            mags=mags,
+            mag_errors=[0.1, 0.1, 0.1, 0.1, 0.1],
+            independent=['Mbol', 'logg'],
+            method='least_square',
+            distance=10.,
+            distance_err=0.1,
+            initial_guess=[10.0, 7.5],
+            refine_bounds=[0.1, 99.9],
+            interpolated=True,
+            Rv=rv,
+            ebv=ebv)
+    ftr.show_best_fit(display=False,
+                      folder='test_output',
+                      filename='test_chi2_minimization_red_interpolated',
+                      ext='png')
+    assert np.isclose(ftr.results['H'].x,
+                      np.array([9.962, 7.5]),
+                      rtol=1e-03,
+                      atol=1e-03).all()
