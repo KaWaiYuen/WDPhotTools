@@ -105,3 +105,12 @@ def test_plot_cooling_model_fig_none():
                                filename='cooling_model_ykw_1',
                                ext='png',
                                fig=fig)
+
+# YKW 19JAN2022 4
+def test_plot_cooling_model_folder_none():
+    fig = plotter.plot_cooling_model(display=False, title=' ')
+    plotter.plot_cooling_model(display=False,
+                               savefig=True,
+                               filename='cooling_model_ykw_2',
+                               ext='png',
+                               fig=fig)
