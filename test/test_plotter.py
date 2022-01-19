@@ -78,8 +78,8 @@ def test_plot_cooling_model_invert_axis():
                                filename='cooling_model_r_logg',
                                ext=['png', 'pdf'])
 
-# YKW 19JAN2022
-def test_plot_3_atmosphere_models():
+# YKW 19JAN2022 1
+def test_plot_atmosphere_models_he_title_none():
     fig = plotter.plot_atmosphere_model(display=False, title=' ')
     plotter.plot_atmosphere_model(atmosphere='He',
                                   invert_yaxis=True,
@@ -87,3 +87,11 @@ def test_plot_3_atmosphere_models():
                                   display=False,
                                   title=None,
                                   fig=fig)
+
+# YKW 19JAN2022 2
+def test_plot_atmosphere_models_none_folder_savefig():
+    plotter.plot_atmosphere_model(display=False,
+                                  savefig=True,
+                                  folder=None,
+                                  filename='test_plot_atmosphere_model_YKW_1',
+                                  ext='png')
